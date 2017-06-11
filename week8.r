@@ -31,8 +31,6 @@ sd(x) #стандартно отклонение
 #функцията f() с префикси d,p,q,r за съответно плътност, разпределние, квантил и случайно разпределение(симулиране)
 
 
-#blah blah
-
 #-----------------------------------------------------
 
 #01
@@ -57,3 +55,39 @@ alpha=1-0.95
 z=qnorm(1-alpha/2)
 lower=x-z*sd
 upper=x+z*sd
+
+#03
+#1000 случайни нормално разпределени величини N(2,2)
+x = rnorm(n = 1000, mean = 2, sd = sqrt(2))
+alpha=1-0.95
+z=qnorm(1-alpha/2)
+x.cherta=mean(x)
+#N(mu,1) -> formula 10
+x.lower=x.cherta-z*1
+x.upper=x.cherta+z*1
+plot(x)
+lines(x=0:1000,y=rep(x.upper,1001), col='red')
+lines(x=0:1000,y=rep(x.lower,1001), col='blue')
+
+x.l=length(x[x>=lower&x<=x.upper])
+mean(x[x>=lower&x<=x.upper])
+x.pro=x.l/10
+
+#N(2,1)
+y=rnorm(n=1000, mean=2, sqrt(1))
+alpha=1-0.95
+z=qnorm(1-alpha/2)
+y.cherta=mean(y)
+#N(mu,1) -> formula 10
+y.lower=y.cherta-z*1
+y.upper=y.cherta+z*1
+plot(y)
+lines(x=0:1000,y=rep(y.upper,1001), col='red')
+lines(x=0:1000,y=rep(y.lower,1001), col='blue')
+
+y.l=length(y[y>=lower&y<=y.upper])
+mean(y[y>=lower&y<=y.upper])
+y.pro=y.l/10
+
+#04
+
