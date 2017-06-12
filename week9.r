@@ -35,6 +35,7 @@ persp(x,y,z, theta=10, phi=20,expand=0.5, col="light blue")
 persp(x,y,z, theta=10, phi=20,expand=0.5, col="light blue", shade=0.75)
 
 
+
 #-----------------------------------------------------
 
 #01
